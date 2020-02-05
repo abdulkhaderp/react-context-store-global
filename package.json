@@ -1,0 +1,46 @@
+{
+  "name": "react-context-store-global",
+  "version": "1.0.0",
+  "description": "The easiest to integrate, global state management library for React based on Context API",
+  "main": "index.js",
+  "peerDependencies": {
+    "react": "^16.12.0"
+  },
+  "scripts": {
+    "start": "webpack --watch",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+   "repository": {
+        "type": "git",
+        "url": "https://github.com/abdulkhaderp/react-context-store-global.git"
+    },
+	"homepage": "https://github.com/abdulkhaderp/react-context-store-global",
+	"author": "Abdul khader P <abdulkhaderp@gmail.com>",
+	"license": "MIT",
+	"keywords": [
+    "react",
+    "react context",
+    "react state",
+    "react global state",
+    "react context state",
+    "react state management",
+    "react store",
+    "react global store",
+    "react context store"
+  ],
+  "dependencies": {
+    "react": "^16.12.0",
+    "webpack": "^4.41.5"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "webpack-cli": "^3.3.10"
+  }
+}
