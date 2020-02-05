@@ -33,4 +33,9 @@ npm install react-context-store-global
     
 ### API:
 
-1.  ```ContextStore.getContextStoreData(this)  ``` Can be used in stateful component only.
+1. ```ContextStore.getContextStoreData(this)  ``` To get the current global state.Can be used in stateful component only. ```this``` refer the class instance.
+2. ```ContextStore.getContextStoreDataItem('id')``` To get a particular state value based on key.
+3. ```ContextStore.updateContextStore(instance,key,payload)``` To update the global state. Payload will be updated against the key.```this``` refer the class instance.Can be used only in stateful component.
+
+
+
