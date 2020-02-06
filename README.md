@@ -1,11 +1,11 @@
 # react-context-store-global
 
-The easiest to integrate, global state management library for React based on Context API
+The EASIEST to integrate, global state management library for React based on Context API
 
 ## Installation
-npm install react-context-store-global
+```npm install react-context-store-global```
 
-## how To Setup:
+## How To Setup:
 
 ### Create a file to maintain the global state. For eg:
 ```
