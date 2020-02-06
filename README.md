@@ -34,8 +34,61 @@ npm install react-context-store-global
 ### API:
 
 1. ```ContextStore.getContextStoreData(this)  ``` To get the current global state.Can be used in stateful component only. ```this``` refer the class instance.
-2. ```ContextStore.getContextStoreDataItem('id')``` To get a particular state value based on key.
-3. ```ContextStore.updateContextStore(instance,key,payload)``` To update the global state. Payload will be updated against the key.```this``` refer the class instance.Can be used only in stateful component.
+2. ```ContextStore.getContextStoreDataItem('id')``` To get a particular state value based on key.Only first level Keys should be passed. 
+3. ```ContextStore.updateContextStore(instance,key,payload)``` To update the global state. Payload will be updated against the key.```this``` refer the class instance.Only first level keys should be passed.Can be used only in stateful component.
+4. ```ContextStore.useContextStore(Class)``` For a stateful component,this is how component subscribe to the context object. This is necessary to access or update the global state. ```Class``` refer to the class name.
 
 
+### How to access or update the global state from components ? See the examples below.
 
+-- Examples below are very stright forward, simple to grasp and self explnatory.Necessary comments are added in the snippets itself--
+
+From a stateful component
+```
+import React from 'react';
+import {ContextStore} from 'react-context-store-global';
+class MyComp extends React.Component {
+
+ handleInput =(event)=>{
+  //Update the global state with the user input.
+   ContextStore.updateContextStore(this,'id',event.target.value)
+ }
+ render(){
+ // Get id from global state. Three different ways of doing it below.
+     const {id} = this.context;  
+  //OR const id   = ContextStore.getContextStoreDataItem('id');
+  //OR const {id} = ContextStore.getContextStoreData(this);
+  return(
+   
+       <div> 
+         {id}
+         <input type="text" onChange={this.handleInput} />
+       </div>
+     
+  )
+ }
+ 
+}
+ContextStore.useContextStore(MyComp);
+export default MyComp;
+```
+From stateless component
+```
+import React from 'react';
+import {ContextStore,useContext} from 'react-context-store-global';
+const MyComp = (props) => {
+//Get id from the global state.
+const {id} = useContext(ContextStore);
+const {updateStore} = useContext(ContextStore);
+ const handleChange =(event)=>{
+    //Update the global state with the user input
+   updateStore("id",event.target.value);
+  }
+  return (
+      <div>
+      <input type="text" onChange={handleChange} />
+      </div>
+  );
+}
+export default MyComp;
+```
